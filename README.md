@@ -1,36 +1,171 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎉 evenimente.com
 
-## Getting Started
+**Toate serviciile pentru evenimentul tău, într-un singur loc.**
 
-First, run the development server:
+A modern marketplace platform connecting event organizers with verified service providers (bartenders, waiters, mobile bars, wine corners) in Romania.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![Next.js](https://img.shields.io/badge/Next.js-16.1.1-black?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?logo=tailwind-css)
+![License](https://img.shields.io/badge/License-Private-red)
+
+---
+
+## ✨ Features
+
+### For Clients
+- 🔍 Browse verified service providers
+- 🎯 Filter by category (bartenders, waiters, wine corner, etc.)
+- 📦 Pre-configured event packages
+- 📝 Quick quote request forms
+- 💬 WhatsApp direct contact
+
+### For Providers
+- 📋 Professional profile listings
+- 💰 Flexible pricing (hourly, per event, quote-based)
+- ⭐ Ratings and reviews system
+- 🏷️ Verified badge for trust
+
+### Platform
+- 🎨 Beautiful, responsive design
+- 🇷🇴 Fully localized in Romanian
+- 📱 Mobile-first approach
+- ⚡ Fast page loads with Next.js App Router
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **Next.js 16** | React framework with App Router |
+| **TypeScript** | Type-safe development |
+| **Tailwind CSS 4** | Utility-first styling |
+| **React 19** | UI components |
+
+### Future Integrations (Phase 2+)
+- **Supabase** - Database, Auth, Storage
+- **Stripe / Netopia** - Payment processing
+- **Vercel** - Deployment
+
+---
+
+## 📁 Project Structure
+
+```
+├── app/                    # Next.js App Router pages
+│   ├── furnizori/         # Marketplace & provider details
+│   ├── serviciile-noastre/ # Our services page
+│   ├── pachete/           # Event packages
+│   ├── devino-partener/   # Become a partner
+│   ├── despre-noi/        # About us
+│   ├── contact/           # Contact form
+│   └── (legal pages)      # Terms, Privacy, Cancellation
+├── components/
+│   ├── layout/            # Header, Footer
+│   ├── ui/                # Reusable UI components
+│   ├── home/              # Homepage sections
+│   └── furnizori/         # Provider components
+├── lib/
+│   ├── mockData.ts        # Sample data for MVP
+│   ├── constants.ts       # Site configuration
+│   ├── types.ts           # TypeScript definitions
+│   ├── utils.ts           # Utility functions
+│   └── proxy.ts           # API layer (future Supabase)
+└── public/images/         # Static assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/web-bookmyevent.git
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Navigate to project
+cd web-bookmyevent
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Install dependencies
+npm install
 
-## Deploy on Vercel
+# Run development server
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+---
+
+## 📄 Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Homepage with hero, services, featured providers |
+| `/furnizori` | Marketplace with filters |
+| `/furnizori/[id]` | Provider detail page |
+| `/serviciile-noastre` | Mobile bar services showcase |
+| `/pachete` | Event packages (wedding, corporate) |
+| `/devino-partener` | Partner registration info |
+| `/despre-noi` | About us & team |
+| `/contact` | Contact form with WhatsApp |
+
+---
+
+## 🎨 Design System
+
+### Colors
+- **Primary:** Warm beige/cream (`#F5F0E8`)
+- **Secondary:** Rich brown (`#6B5344`)
+- **Accent:** Gold (`#D4AF37`)
+
+### Typography
+- **Headings:** Cormorant Garamond (serif)
+- **Body:** Plus Jakarta Sans (sans-serif)
+
+---
+
+## 📋 Roadmap
+
+- [x] **Phase 1: MVP** - Static site with mock data
+- [ ] **Phase 2: Backend** - Supabase integration, auth
+- [ ] **Phase 3: Payments** - Stripe/Netopia, booking system
+- [ ] **Phase 4: Growth** - Reviews, analytics, mobile app
+
+---
+
+## 🤝 Contributing
+
+This is a private project. Please contact the repository owner for contribution guidelines.
+
+---
+
+## 📞 Contact
+
+- **Email:** contact@evenimente.com
+- **Location:** Oradea, Bihor, România
+
+---
+
+## 📜 License
+
+Private - All rights reserved.
+
+---
+
+<p align="center">
+  Made with ❤️ in Romania
+</p>
