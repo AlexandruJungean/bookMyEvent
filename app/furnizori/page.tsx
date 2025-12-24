@@ -1,24 +1,8 @@
-"use client";
+import { Suspense } from "react";
+import FurnizoriContent from "./FurnizoriContent";
 
-import { useState, useMemo } from "react";
-import { useSearchParams } from "next/navigation";
-import SectionTitle from "@/components/ui/SectionTitle";
-import FilterTabs from "@/components/furnizori/FilterTabs";
-import ProviderCard from "@/components/furnizori/ProviderCard";
-import { PRESTATORI } from "@/lib/mockData";
-
-export default function FurnizoriPage() {
-  const searchParams = useSearchParams();
-  const initialCategory = searchParams.get("categorie") || "toate";
-  const [activeCategory, setActiveCategory] = useState(initialCategory);
-
-  const filteredProviders = useMemo(() => {
-    if (activeCategory === "toate") {
-      return PRESTATORI;
-    }
-    return PRESTATORI.filter((p) => p.categorie === activeCategory);
-  }, [activeCategory]);
-
+// Loading component for Suspense fallback
+function FurnizoriLoading() {
   return (
     <div className="pt-24 pb-16">
       {/* Hero Section */}
@@ -31,58 +15,42 @@ export default function FurnizoriPage() {
             <p className="text-lg text-brown-500 mb-8">
               Explorează prestatorii noștri verificați și alege serviciile potrivite pentru evenimentul tău
             </p>
-            
-            {/* Filter Tabs */}
-            <FilterTabs
-              activeCategory={activeCategory}
-              onCategoryChange={setActiveCategory}
-            />
+            {/* Loading placeholder for filter tabs */}
+            <div className="flex flex-wrap justify-center gap-2">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div key={i} className="h-10 w-24 bg-cream-200 rounded-full animate-pulse" />
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Results */}
+      {/* Results Loading */}
       <section className="section-padding">
         <div className="container-custom">
-          {/* Results count */}
-          <div className="flex items-center justify-between mb-8">
-            <p className="text-brown-500">
-              <span className="font-semibold text-brown-800">{filteredProviders.length}</span>{" "}
-              {filteredProviders.length === 1 ? "furnizor găsit" : "furnizori găsiți"}
-            </p>
-          </div>
-
-          {/* Grid */}
-          {filteredProviders.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredProviders.map((provider, index) => (
-                <div
-                  key={provider.id}
-                  className="animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.05}s` }}
-                >
-                  <ProviderCard provider={provider} />
+          <div className="h-6 w-32 bg-cream-200 rounded animate-pulse mb-8" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+              <div key={i} className="bg-white rounded-2xl overflow-hidden border border-cream-200">
+                <div className="aspect-[4/3] bg-cream-200 animate-pulse" />
+                <div className="p-4 space-y-3">
+                  <div className="h-5 bg-cream-200 rounded animate-pulse w-3/4" />
+                  <div className="h-4 bg-cream-200 rounded animate-pulse w-1/2" />
+                  <div className="h-4 bg-cream-200 rounded animate-pulse w-full" />
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-16">
-              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-cream-100 flex items-center justify-center">
-                <svg className="w-12 h-12 text-cream-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
               </div>
-              <h3 className="text-xl font-heading font-semibold text-brown-800 mb-2">
-                Niciun furnizor găsit
-              </h3>
-              <p className="text-brown-500">
-                Nu am găsit furnizori în această categorie. Încearcă altă categorie.
-              </p>
-            </div>
-          )}
+            ))}
+          </div>
         </div>
       </section>
     </div>
   );
 }
 
+export default function FurnizoriPage() {
+  return (
+    <Suspense fallback={<FurnizoriLoading />}>
+      <FurnizoriContent />
+    </Suspense>
+  );
+}
