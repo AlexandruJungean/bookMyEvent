@@ -46,7 +46,7 @@ A modern marketplace platform connecting event organizers with verified service 
 ### Future Integrations (Phase 2+)
 - **Supabase** - Database, Auth, Storage
 - **Stripe / Netopia** - Payment processing
-- **Vercel** - Deployment
+- **Netlify or cPanel** - Deployment
 
 ---
 

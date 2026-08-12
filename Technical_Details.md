@@ -453,11 +453,9 @@ NEXT_PUBLIC_CONTACT_PHONE=
 
 ## 🚀 Deployment
 
-### Platformă Recomandată
-- **Vercel** (optim pentru Next.js)
-- Deploy-uri preview automate
-- Suport edge functions
-- Analize încorporate
+### Platformă
+- **Netlify** sau **cPanel**
+- Deploy-uri preview pe Netlify
 
 ### Configurare Domeniu
 - Primar: evenimente.com
